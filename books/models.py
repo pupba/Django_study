@@ -19,6 +19,8 @@ class Author(models.Model):
     def __str__(self):
         return '{0} {1}'.format(self.first_name, self.last_name)
 
+import datetime
+from django.utils import timezone
 class Book(models.Model):
     title = models.CharField(max_length=30)
     authors = models.ManyToManyField(Author)
@@ -27,3 +29,6 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+    def recent_publication(self):
+        return self.publication_date >= timezone.now().date() - datetime.timedelta(days=13)

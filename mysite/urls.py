@@ -19,6 +19,7 @@ from django.urls import re_path
 from mysite.view import *
 from mysite.currentTime import *
 from books.views import *
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,5 +35,8 @@ urlpatterns = [
     path('s1/',search_form),
     path('search/',search),
     path('cur/',current_page),
-    path('login/',login)
+    path('login/',login),
 ]
+
+if settings.DEBUG:
+    urlpatterns +=[re_path(r'^debuginfo/$',debug)]

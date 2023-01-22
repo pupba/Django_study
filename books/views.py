@@ -37,3 +37,21 @@ def login(request):
     contexts = {'inputData':None,'form':form}
     contexts['inputData'] = inputD
     return render(request,'login.html',contexts)
+
+def debug(request):
+    return HR('<h1>추가된 페이지</h1>')
+
+from django.db import connection
+def custom_sql():
+    try:
+        cur = connection.cursor()
+        cur.execute("SELECT * FROM books_publisher WHERE country = %s",['Korea'])
+        connection.commit()
+
+        rows = cur.fetchall()
+
+        connection.close()
+        return rows
+    except:
+        connection.rollback()
+        print('Query is Failed')
