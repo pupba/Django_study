@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import re_path
-from mysite.view import *
+from mysite.views import *
 from mysite.currentTime import *
 from books.views import *
 from django.conf import settings
@@ -36,6 +36,10 @@ urlpatterns = [
     path('search/',search),
     path('cur/',current_page),
     path('login/',login),
+    path('csv1/',mkCSV1),
+    path('csv2/',mkCSV2),
+    path('ss1/',session1),
+    path('ss2/',session2),
 ]
 
 if settings.DEBUG:
