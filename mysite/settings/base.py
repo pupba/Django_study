@@ -70,8 +70,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+# import json
+# info = {}
+# with open('./mysqlinfo.json') as f:
+#     info.update(json.load(f))
+# 2023.02.06 기준 mysqlclient가 파이썬 3.10까지만 지원으로 인해 현재 버전은 사용 불가
 DATABASES = {
+    #'default':info
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',

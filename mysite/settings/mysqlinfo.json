@@ -1,0 +1,8 @@
+{
+    "ENGINE":"django.db.backends.mysql",
+    "NAME" : "testMySQL",
+    "USER" : "root",
+    "PASSWORD" : "00000000",
+    "HOST" : "localhost",
+    "PORT" : "3306"
+}
